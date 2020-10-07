@@ -1,3 +1,4 @@
+require 'pry'
 class Application
 
   @@items = ["Apples","Carrots","Pears"]
@@ -20,8 +21,11 @@ class Application
     end 
     elsif req.path.match(/add/)
       add_term = req.params["item"]
+      # binding.pry  
       resp.write handle_add_item(add_term)
+      # binding.pry
     elsif req.path.match(/search/)
+    
       search_term = req.params["q"]
       resp.write handle_search(search_term)
     else
